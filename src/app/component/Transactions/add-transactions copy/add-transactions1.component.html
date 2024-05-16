@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2 mat-dialog-title>{{ data.title }}</h2>
+        </div>
+    </div>
+    <div mat-dialog-content>
+        <form #form="ngForm" [formGroup]="addFormEvent">
+
+            <mat-checkbox formControlName="upiCheckbox" (change)="toggleInput('upi')">UPI</mat-checkbox>
+            <mat-form-field *ngIf="showUpiInput">
+                <input type="text" matInput placeholder="UPI Amount" id="upi" name="upi" formControlName="upi">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="cashCheckbox" (change)="toggleInput('cash')">Cash</mat-checkbox>
+            <mat-form-field *ngIf="showCashInput">
+                <input type="text" matInput placeholder="Cash Received" id="cash" name="cash" formControlName="cash">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="utilizedCheckbox" (change)="toggleInput('utilized')">Utilized</mat-checkbox>
+            <mat-form-field *ngIf="showUtilizedInput">
+                <input type="text" matInput placeholder="Utilized Amount" id="used" name="used" formControlName="used">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput placeholder="Reason" id="reason" name="reason" formControlName="reason">
+                <mat-error
+                    *ngIf="addFormEvent.get('reason')?.hasError('required') && addFormEvent.get('reason')?.touched">
+                    Reason is required.
+                </mat-error>
+            </mat-form-field>
+
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <div fxFlex="100" class="button-row" fxLayoutAlign="end">
+            <button type="submit" mat-raised-button color="primary" type="button" (click)="onAddEvent()">Save</button>
+            <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+</div>

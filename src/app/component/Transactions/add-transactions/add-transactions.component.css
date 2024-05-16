@@ -1,0 +1,52 @@
+body {
+    margin-top: 20px;
+}
+
+.mat-mdc-form-field {
+    display: block !important
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input.matInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input.mat-input:focus {
+    background-color: transparent !important;
+}
+
+
+.icon-input {
+    position: relative;
+}
+
+#icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    /* Adjust this value as needed */
+    cursor: pointer;
+    /* Optional */
+}
+
+
+.timepicker-container {
+    padding-bottom: 15px;
+}
+
+#appt {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+}
